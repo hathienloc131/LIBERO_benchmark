@@ -28,9 +28,9 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 # from myutils.pi0_infer import Pi0TorchInference, normalize_gripper_action, invert_gripper_action
 # from evaluation.pi0_infer.pi0_inference import Pi0_inference
 # from evaluation.smolvla_infer.smolvla_inference import SmolVLA_inference
-
+from evaluation.gr00tn15_infer.gr00tn15_inference import Gr00tn15_inference
 # from evaluation.gr00tn16_infer.gr00tn16_inference import Gr00tn16_inference
-from experiments.ipec_libero.evaluation.eo1_infer.eo1_inference import EO1_inference
+# from experiments.ipec_libero.evaluation.eo1_infer.eo1_inference import EO1_inference
 
 LIBERO_DUMMY_ACTION = [0.0] * 6 + [-1.0]
 LIBERO_ENV_RESOLUTION = 256  # resolution used to render training data
@@ -139,6 +139,9 @@ def eval_libero(args: Args, task_suite_name:str=None) -> None:
             logging.info(f"Task {args.task_suite_name} | Successfully {args.model_type} loaded policy")
         elif args.model_type=="gr00tn16":
             mypolicy = Gr00tn16_inference(args.pretrained_model_path, args.infer_chunk)
+            logging.info(f"Task {args.task_suite_name} | Successfully {args.model_type} loaded policy")
+        elif args.model_type=="gr00tn15":
+            mypolicy = Gr00tn15_inference(args.pretrained_model_path, args.infer_chunk)
             logging.info(f"Task {args.task_suite_name} | Successfully {args.model_type} loaded policy")
         elif args.model_type=="eo1":
             mypolicy = EO1_inference(args.pretrained_model_path, args.infer_chunk)
