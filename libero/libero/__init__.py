@@ -5,7 +5,7 @@ import yaml
 # libero_config_path = os.environ.get(
 #     "LIBERO_CONFIG_PATH"#, os.path.expanduser("~/.libero")
 # )
-libero_config_path = '/mnt/data/sftp/data/vla_intern/workspace/binh/2026/evaluation_setup/libero_benchmark/libero'
+libero_config_path = '/mnt/data/sftp/data/locht1/libero_benchmark/libero'
 # libero_config_path = '/mnt/data/sftp/data/vla_intern/workspace/binh/gr00t_custom/libero'
 # config_file = os.path.join(libero_config_path, "config.yaml")
 config_file = os.path.join(libero_config_path, "libero_config.yaml")
