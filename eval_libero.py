@@ -94,13 +94,12 @@ def eval_libero(args: Args, task_suite_name:str=None) -> None:
     # Set random seed
     np.random.seed(args.seed)
 
+    if task_suite_name is not None:
+        args.task_suite_name = task_suite_name
     # Initialize LIBERO task suite
     benchmark_dict = benchmark.get_benchmark_dict()
     task_suite = benchmark_dict[args.task_suite_name]()
     num_tasks_in_suite = task_suite.n_tasks
-
-    if task_suite_name is not None:
-        args.task_suite_name = task_suite_name
 
     if args.task_suite_name == "libero_spatial":
         max_steps = 220  # longest training demo has 193 steps
